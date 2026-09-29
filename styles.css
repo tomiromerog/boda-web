@@ -105,15 +105,17 @@ img { display: block; max-width: 100%; }
   margin: 0 0 calc(16.67725 * var(--page-unit)) 31.35%;
   font-size: calc(2.1875 * var(--page-unit));
   line-height: 1.25;
+  letter-spacing: 0.05em;
 }
+
+.invitation > span { display: block; white-space: nowrap; }
 
 .attendance { display: grid; justify-items: center; }
 
 .map-link, .rsvp-desktop {
   display: block;
-  padding: 4px;
   font-size: calc(2.8125 * var(--page-unit));
-  line-height: 1.2;
+  line-height: 0.9;
   letter-spacing: 0.05em;
 }
 
@@ -123,20 +125,24 @@ img { display: block; max-width: 100%; }
 
 .rsvp-mobile { display: none; }
 
-.closing { padding: calc(8.02185 * var(--page-unit)) 0 calc(12.82043 * var(--page-unit)); }
+.closing {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  padding: calc(8.02185 * var(--page-unit)) 0 calc(12.82043 * var(--page-unit));
+}
 
 .closing > p:first-child {
   width: 34.86%;
   margin-inline: auto;
   font-size: calc(2.1875 * var(--page-unit));
-  line-height: 1.25;
+  line-height: 0.9;
 }
 
 .signature {
   margin-top: calc(1.54724 * var(--page-unit));
   font-family: "Snell Roundhand", cursive;
   font-size: calc(2.5 * var(--page-unit));
-  line-height: 1.4;
+  line-height: 0.9;
 }
 
 .gift-divider {
@@ -197,15 +203,24 @@ img { display: block; max-width: 100%; }
 
   .rsvp-desktop { display: none; }
 
-  .rsvp-mobile { display: block; width: 87.7%; }
+  .rsvp-mobile {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 87.7%;
+    line-height: 0.9;
+  }
 
   .rsvp-mobile h2 { margin-bottom: 1.66066vw; font-size: 4.61538vw; }
 
-  .rsvp-mobile p { margin-bottom: 2.91466vw; font-size: 4.10256vw; }
+  .rsvp-mobile p {
+    margin-bottom: 2.91466vw;
+    font-size: 4.10256vw;
+    letter-spacing: 0.05em;
+  }
 
   .rsvp-mobile a {
-    display: inline-block;
-    padding: 8px;
+    display: block;
+    justify-self: center;
     margin-bottom: 5.84335vw;
     font-size: 4.61538vw;
     letter-spacing: 0.05em;
@@ -213,9 +228,17 @@ img { display: block; max-width: 100%; }
 
   .closing { padding: 12.47997vw 0 27.93771vw; }
 
-  .closing > p:first-child { width: 87.7%; font-size: 4.10256vw; }
+  .closing > p:first-child {
+    width: 87.7%;
+    font-size: 4.10256vw;
+    letter-spacing: 0.05em;
+  }
 
-  .signature { margin-top: 2.51603vw; font-size: 4.61538vw; }
+  .signature {
+    margin-top: 2.51603vw;
+    font-size: 4.61538vw;
+    letter-spacing: 0.05em;
+  }
 
   .gifts { padding-bottom: 7.28566vw; }
 
