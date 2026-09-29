@@ -1,0 +1,248 @@
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("assets/cormorant-garamond.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Snell Roundhand";
+  src: url("assets/snell-roundhand.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --paper: #f5f2e9;
+  --ink: #3b3b3b;
+  --muted-ink: #545454;
+  --page-unit: min(1vw, 19.2px);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; }
+
+h1, h2, h3, p { margin: 0; font-weight: 400; }
+
+a { color: inherit; text-underline-offset: 0.16em; }
+
+a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 6px;
+}
+
+img { display: block; max-width: 100%; }
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 10;
+  padding: 12px 18px;
+  background: var(--paper);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus { transform: none; }
+
+.site-header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1;
+  padding: 24px 5%;
+  font-size: 18px;
+}
+
+.site-header nav { text-align: right; }
+
+.site-header a { text-decoration: none; }
+
+.section {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: min-content min-content 1fr;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.flower {
+  grid-area: 1 / 1 / 4 / 2;
+  align-self: start;
+  width: 29.23%;
+  height: auto;
+  margin: calc(11.19263 * var(--page-unit)) 0 calc(11.02112 * var(--page-unit)) 7.927%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero h1 {
+  grid-area: 1 / 1 / 2 / 2;
+  width: 70.16%;
+  margin: calc(19.96582 * var(--page-unit)) 0 calc(17.31812 * var(--page-unit)) 15%;
+  font-size: calc(4.375 * var(--page-unit));
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+.invitation {
+  grid-area: 2 / 1 / 3 / 2;
+  width: 37.46%;
+  margin: 0 0 calc(16.67725 * var(--page-unit)) 31.35%;
+  font-size: calc(2.1875 * var(--page-unit));
+  line-height: 1.25;
+}
+
+.attendance { display: grid; justify-items: center; }
+
+.map-link, .rsvp-desktop {
+  display: block;
+  padding: 4px;
+  font-size: calc(2.8125 * var(--page-unit));
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+.map-link { margin: calc(0.98755 * var(--page-unit)) 0 calc(3.97949 * var(--page-unit)); }
+
+.rsvp-desktop { margin-bottom: calc(2.17969 * var(--page-unit)); }
+
+.rsvp-mobile { display: none; }
+
+.closing { padding: calc(8.02185 * var(--page-unit)) 0 calc(12.82043 * var(--page-unit)); }
+
+.closing > p:first-child {
+  width: 34.86%;
+  margin-inline: auto;
+  font-size: calc(2.1875 * var(--page-unit));
+  line-height: 1.25;
+}
+
+.signature {
+  margin-top: calc(1.54724 * var(--page-unit));
+  font-family: "Snell Roundhand", cursive;
+  font-size: calc(2.5 * var(--page-unit));
+  line-height: 1.4;
+}
+
+.gift-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(84, 84, 84, 0.14);
+}
+
+.gifts {
+  padding-top: 0;
+  padding-bottom: 70px;
+  color: var(--muted-ink);
+}
+
+.bow {
+  width: 10.29%;
+  height: auto;
+  margin-inline: auto;
+}
+
+.gifts > h2 { display: none; }
+
+.accounts { width: 59.21%; margin-inline: auto; }
+
+.account { margin-top: 24px; font-size: 18px; line-height: 1.3; }
+
+.account h3 { font-size: inherit; text-transform: uppercase; }
+
+.bank-number { white-space: nowrap; }
+
+@media (max-width: 1023px) {
+  :root { --page-unit: 1vw; }
+
+  .site-header { display: none; }
+
+  .flower {
+    width: 36.38%;
+    margin: 4.66747vw 0 5.14022vw -5.3185%;
+  }
+
+  .hero h1 {
+    width: 89.75%;
+    margin: 20.76122vw 0 13.6238vw 5.128%;
+    font-size: 7.17949vw;
+    line-height: 0.95;
+  }
+
+  .invitation {
+    width: 68.23%;
+    margin: 0 0 9.27083vw 15.8874%;
+    font-size: 4.10256vw;
+  }
+
+  .map-link {
+    margin: 5.02404vw 0 5.91146vw;
+    font-size: 4.61538vw;
+  }
+
+  .rsvp-desktop { display: none; }
+
+  .rsvp-mobile { display: block; width: 87.7%; }
+
+  .rsvp-mobile h2 { margin-bottom: 1.66066vw; font-size: 4.61538vw; }
+
+  .rsvp-mobile p { margin-bottom: 2.91466vw; font-size: 4.10256vw; }
+
+  .rsvp-mobile a {
+    display: inline-block;
+    padding: 8px;
+    margin-bottom: 5.84335vw;
+    font-size: 4.61538vw;
+    letter-spacing: 0.05em;
+  }
+
+  .closing { padding: 12.47997vw 0 27.93771vw; }
+
+  .closing > p:first-child { width: 87.7%; font-size: 4.10256vw; }
+
+  .signature { margin-top: 2.51603vw; font-size: 4.61538vw; }
+
+  .gifts { padding-bottom: 7.28566vw; }
+
+  .bow { width: 18.03%; margin-top: -0.5px; margin-bottom: 1vw; }
+
+  .gifts > h2 {
+    display: block;
+    margin: 0 auto 5.76122vw;
+    width: 87.48%;
+    font-size: 4.10256vw;
+    letter-spacing: 0.05em;
+  }
+
+  .accounts { width: 89%; text-align: left; }
+
+  .account { margin: 0 0 6vw; font-size: 4.10256vw; line-height: 1.25; }
+
+  .account h3 { text-transform: none; }
+
+  .usd-account { display: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+  .invitation { animation: float-in 1.2s ease both; }
+  @keyframes float-in {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
