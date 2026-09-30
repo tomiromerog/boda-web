@@ -9,6 +9,7 @@
     <link rel="icon" href="assets/favicon.svg?v=4" type="image/svg+xml">
     <link rel="preload" href="assets/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.css">
+    <script src="rsvp.js" defer></script>
   </head>
   <body id="inicio">
     <a class="skip-link" href="#invitacion">Ir a la invitación</a>
@@ -30,11 +31,11 @@
 
       <section class="attendance section" aria-label="Ubicación y confirmación de asistencia">
         <a class="map-link" href="https://www.google.com/maps/place/Calina+eventos/@-31.2357732,-64.2598805,17z/data=!3m1!4b1!4m6!3m5!1s0x94328300658bced1:0xae7bd755da255b5a!8m2!3d-31.2357778!4d-64.2573056!16s%2Fg%2F11mt6tklj1" target="_blank" rel="noopener noreferrer">Ver mapa</a>
-        <a class="rsvp-desktop" href="https://docs.google.com/forms/d/e/1FAIpQLSfgzWA6H6tdgAvFytmJmz-VKluViC7dtM6rYlH4fGimxipmRA/viewform" target="_blank" rel="noopener noreferrer">R.S.V.P.</a>
+        <a class="rsvp-desktop" href="#rsvp" data-open-rsvp>R.S.V.P.</a>
         <div class="rsvp-mobile">
           <h2>R.S.V.P</h2>
           <p>Confirmar asistencia hasta 15/11</p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgzWA6H6tdgAvFytmJmz-VKluViC7dtM6rYlH4fGimxipmRA/viewform" target="_blank" rel="noopener noreferrer">Formulario</a>
+          <a href="#rsvp" data-open-rsvp>Formulario</a>
         </div>
       </section>
 
@@ -66,5 +67,54 @@
         </div>
       </section>
     </main>
+    <dialog id="rsvp" class="rsvp-dialog" aria-labelledby="rsvp-title">
+      <button class="rsvp-close" type="button" aria-label="Cerrar formulario">×</button>
+      <div class="rsvp-content">
+        <h2 id="rsvp-title">R.S.V.P.</h2>
+        <form id="rsvp-form" novalidate data-endpoint="">
+          <div class="rsvp-names">
+            <div class="rsvp-field">
+              <label for="rsvp-nombre">Nombre <span aria-hidden="true">*</span></label>
+              <input id="rsvp-nombre" name="nombre" type="text" required autocomplete="given-name" aria-describedby="nombre-error">
+              <p id="nombre-error" class="field-error" aria-live="polite"></p>
+            </div>
+            <div class="rsvp-field">
+              <label for="rsvp-apellido">Apellido <span aria-hidden="true">*</span></label>
+              <input id="rsvp-apellido" name="apellido" type="text" required autocomplete="family-name" aria-describedby="apellido-error">
+              <p id="apellido-error" class="field-error" aria-live="polite"></p>
+            </div>
+          </div>
+          <fieldset class="rsvp-options" id="asiste-group" aria-describedby="asiste-error">
+            <legend>¿Nos acompañás? <span aria-hidden="true">*</span></legend>
+            <label class="rsvp-choice"><input type="radio" name="asiste" value="true" required><span>Sí, ahí estaré</span></label>
+            <label class="rsvp-choice"><input type="radio" name="asiste" value="false" required><span>No voy a poder asistir</span></label>
+            <p id="asiste-error" class="field-error" aria-live="polite"></p>
+          </fieldset>
+          <fieldset class="rsvp-options" id="restriccion-group" aria-describedby="restriccion-error">
+            <legend>¿Tenés alguna restricción alimentaria? <span aria-hidden="true">*</span></legend>
+            <label class="rsvp-choice"><input type="radio" name="restriccion_alimentaria" value="ninguna" required><span>No</span></label>
+            <label class="rsvp-choice"><input type="radio" name="restriccion_alimentaria" value="vegetariana" required><span>Vegetariana</span></label>
+            <label class="rsvp-choice"><input type="radio" name="restriccion_alimentaria" value="sin_gluten" required><span>Sin gluten</span></label>
+            <label class="rsvp-choice"><input type="radio" name="restriccion_alimentaria" value="otros" required><span>Otros</span></label>
+            <p id="restriccion-error" class="field-error" aria-live="polite"></p>
+          </fieldset>
+          <div class="restriction-other" aria-hidden="true" inert>
+            <div>
+              <div class="rsvp-field">
+                <label for="rsvp-otro">Especificá tu restricción <span aria-hidden="true">*</span></label>
+                <input id="rsvp-otro" name="restriccion_otro" type="text" disabled aria-describedby="otro-error">
+                <p id="otro-error" class="field-error" aria-live="polite"></p>
+              </div>
+            </div>
+          </div>
+          <p class="rsvp-save-error" role="alert"></p>
+          <button class="rsvp-submit" type="submit">Confirmar</button>
+        </form>
+        <div class="rsvp-confirmation" hidden>
+          <p id="rsvp-thanks" tabindex="-1">¡Gracias por confirmar!</p>
+          <p class="signature">Valen y Tomi</p>
+        </div>
+      </div>
+    </dialog>
   </body>
 </html>

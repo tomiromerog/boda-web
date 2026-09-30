@@ -261,7 +261,150 @@ img { display: block; max-width: 100%; }
   .usd-account { display: none; }
 }
 
+.rsvp-open { overflow: hidden; }
+
+.rsvp-dialog {
+  width: min(620px, calc(100% - 32px));
+  max-height: calc(100dvh - 40px);
+  padding: 42px 40px 36px;
+  border: 1px solid rgba(84, 84, 84, 0.18);
+  color: var(--ink);
+  background: var(--paper);
+  font-family: inherit;
+  font-size: 21px;
+  line-height: 1.3;
+  overflow-y: auto;
+}
+
+.rsvp-dialog::backdrop {
+  background: rgba(40, 37, 31, 0.32);
+  backdrop-filter: blur(3px);
+}
+
+.rsvp-dialog [hidden] { display: none !important; }
+
+.rsvp-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted-ink);
+  font: inherit;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.rsvp-content > h2 {
+  margin-bottom: 32px;
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 0.08em;
+}
+
+.rsvp-names { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+
+.rsvp-field { display: grid; gap: 8px; }
+
+.rsvp-field label > span, .rsvp-options legend > span { color: #757574; }
+
+.rsvp-field input {
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+  padding: 6px 2px;
+  border: 0;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.35);
+  border-radius: 0;
+  color: var(--ink);
+  background: transparent;
+  font: inherit;
+}
+
+.rsvp-field input:focus-visible {
+  outline: none;
+  border-bottom-color: var(--ink);
+  box-shadow: 0 1px 0 var(--ink);
+}
+
+.rsvp-options { margin: 26px 0 0; padding: 0; border: 0; min-width: 0; }
+
+.rsvp-options legend { padding: 0; margin-bottom: 10px; }
+
+.rsvp-choice { display: flex; align-items: center; gap: 12px; min-height: 42px; cursor: pointer; }
+
+.rsvp-choice input {
+  appearance: none;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  border: 1px solid rgba(84, 84, 84, 0.5);
+  border-radius: 50%;
+  color: var(--muted-ink);
+  background: transparent;
+  cursor: pointer;
+}
+
+.rsvp-choice input:checked { background: radial-gradient(circle, currentColor 0 35%, transparent 40%); }
+
+.rsvp-choice input:focus-visible, .rsvp-close:focus-visible, .rsvp-submit:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 5px;
+}
+
+.rsvp-field input[aria-invalid="true"] { border-bottom-color: #986054; }
+
+.field-error, .rsvp-save-error { color: #986054; font-size: 17px; line-height: 1.3; }
+
+.field-error:empty, .rsvp-save-error:empty { display: none; }
+
+.rsvp-save-error { margin-top: 24px; }
+
+.restriction-other {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.restriction-other.is-open { grid-template-rows: 1fr; opacity: 1; visibility: visible; }
+
+.restriction-other > div { min-height: 0; overflow: hidden; }
+
+.restriction-other .rsvp-field { padding-top: 22px; }
+
+.rsvp-submit {
+  display: block;
+  min-height: 44px;
+  margin: 28px auto 0;
+  padding: 9px 30px;
+  border: 1px solid rgba(84, 84, 84, 0.45);
+  color: var(--ink);
+  background: transparent;
+  font: inherit;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.rsvp-submit:disabled, .rsvp-close:disabled { opacity: 0.55; cursor: default; }
+
+.rsvp-confirmation { padding: 38px 0 22px; text-align: center; }
+
+.rsvp-confirmation > p:first-child { font-size: 28px; }
+
+.rsvp-confirmation .signature { margin-top: 24px; font-size: 28px; line-height: 1.3; letter-spacing: 0; }
+
+@media (max-width: 560px) {
+  .rsvp-dialog { padding: 42px 24px 28px; }
+  .rsvp-names { grid-template-columns: minmax(0, 1fr); }
+}
+
 @media (prefers-reduced-motion: no-preference) {
+  .restriction-other { transition: grid-template-rows 220ms ease, opacity 220ms ease, visibility 220ms ease; }
   html { scroll-behavior: smooth; }
   .invitation { animation: float-in 1.2s ease both; }
   @keyframes float-in {
