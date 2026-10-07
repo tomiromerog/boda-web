@@ -1,3 +1,4 @@
+
 "use strict";
 
 (() => {
@@ -147,10 +148,16 @@
       return;
     }
 
+    // Los invitados de post12 no completan
+    // restricciones alimentarias.
+    // Se asignan automáticamente.
+
     const payload = {
       nombre: nombre.value.trim(),
       apellido: apellido.value.trim(),
       asiste: form.elements.namedItem("asiste").value === "true",
+      restriccion_alimentaria: "ninguna",
+      restriccion_otro: null,
     };
 
     isSaving = true;
@@ -193,11 +200,17 @@
 
       if (!response.ok) {
         const errorText = await response.text();
-        console.error("Error Supabase:", response.status, errorText);
+        console.error(
+          "Error Supabase:",
+          response.status,
+          errorText
+        );
         throw new Error("No se pudo guardar el RSVP");
       }
 
+      // =====================================================
       // ÉXITO
+      // =====================================================
 
       form.hidden = true;
       title.hidden = true;
