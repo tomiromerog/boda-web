@@ -41,3 +41,5 @@ El HTML original contiene datos bancarios de ejemplo en una sección oculta en m
 Se analizaron el HTML, los estilos, los recursos y los enlaces publicados por Wix para escritorio y móvil. Falta comparar visualmente ambas versiones en un navegador: los permisos de control de Chrome no estaban disponibles durante la creación.
 
 La carpeta `reference` contiene el material de consulta y queda excluida de Git y del ZIP de publicación.
+
+La ruta `fiesta/` publica la invitación de la fiesta en `/fiesta/`, con la ilustración de brindis y el formulario de confirmación.
